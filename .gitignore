@@ -35,7 +35,3 @@ dist-ssr
 
 # Testing
 coverage/
-
-# Misc
-.gemini/
-.antigravity/
