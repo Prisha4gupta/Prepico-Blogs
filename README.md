@@ -2,6 +2,8 @@
 
 A modern, production-ready blog platform built with Vue.js 3, Vite, Tailwind CSS, and Supabase. Features a responsive design, block-based content editor, and a dynamic backend for managing articles.
 
+---
+
 ## 🚀 Features
 
 *   **Modern Visuals**: Mobile-first design inspired by Prepico.ai, featuring glassmorphism, beautiful gradients, and a curated HSL color palette.
@@ -11,12 +13,16 @@ A modern, production-ready blog platform built with Vue.js 3, Vite, Tailwind CSS
 *   **State Management**: Centralized data handling using Pinia.
 *   **SEO Optimized**: Semantic HTML structure and responsive layouts.
 
+---
+
 ## 🛠️ Tech Stack
 
 *   **Frontend**: Vue 3 (Composition API), Vite, Vue Router
 *   **State Management**: Pinia
 *   **Styling**: Tailwind CSS (v3 with Custom Design Tokens)
 *   **Backend & Database**: Supabase (PostgreSQL)
+
+---
 
 ## 📦 Project Structure
 
@@ -37,6 +43,8 @@ src/
     ├── BlogViewPage.vue      # Single article reader
     └── AdminEditorPage.vue   # CMS for writing & publishing
 ```
+
+---
 
 ## ⚡ Getting Started
 
@@ -73,39 +81,5 @@ src/
     ```bash
     npm run dev
     ```
-    Open [http://localhost:5173](http://localhost:5173) in your browser.
-
-## 📝 Usage
-
-### Admin Interface
-Navigate to `/admin` to access the editor.
-1.  Enter article details (Title, Slug, Author, etc.).
-2.  Use the "Add Block" button to structure your content.
-3.  Click "Publish Article" to push changes live to your Supabase database.
-
-### Reading Articles
-*   **Home**: Highlights featured articles.
-*   **Blog Feed**: Browse all published content at `/blogs`.
-*   **Article View**: Read full stories at `/blogs/:id`.
-
-## 🎨 Customization
-
-Design tokens are located in `src/style.css` using CSS variables mapped to Tailwind configuration:
-*   `--color-primary`: Main brand color (currently `#0066cc`)
-*   `--font-sans`: Primary typeface stack
-
-## 🤝 Contributing
-
-1.  Fork the repository
-2.  Create your feature branch (`git checkout -b feature/amazing-feature`)
-3.  Commit your changes (`git commit -m 'Add some amazing feature'`)
-4.  Push to the branch (`git push origin feature/amazing-feature`)
-5.  Open a Pull Request
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
-
-> Built with ❤️ by the Prepico Team.
