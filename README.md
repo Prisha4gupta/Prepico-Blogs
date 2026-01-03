@@ -1,183 +1,111 @@
 # Prepico Blogs
 
-A production-ready blog platform built with Vue.js 3, Vite, and Pinia. Features a block-based content editor, responsive design, and modern UX inspired by Prepico.ai.
+A modern, production-ready blog platform built with Vue.js 3, Vite, Tailwind CSS, and Supabase. Features a responsive design, block-based content editor, and a dynamic backend for managing articles.
 
-## Features
+## 🚀 Features
 
-- **Vue 3 Composition API** - Modern reactive components with `<script setup>`
-- **Block-Based Editor** - Create flexible article layouts with headings, paragraphs, quotes, and lists
-- **Pinia State Management** - Centralized blog data management
-- **Responsive Design** - Mobile-first design that works on all devices
-- **Grid Layout** - Beautiful card-based blog listing with responsive columns
-- **Rich Content Rendering** - Dynamic content block rendering with styled elements
-- **Client-side Routing** - Fast navigation with Vue Router
+*   **Modern Visuals**: Mobile-first design inspired by Prepico.ai, featuring glassmorphism, beautiful gradients, and a curated HSL color palette.
+*   **Block-Based Editor**: Intuitive admin interface to create articles with headings, paragraphs, formatted lists, and quotes.
+*   **Dynamic Data**: Fully integrated with Supabase for real-time data persistence and storage.
+*   **High Performance**: Powered by Vite and Vue 3 for lightning-fast loads and smooth transitions.
+*   **State Management**: Centralized data handling using Pinia.
+*   **SEO Optimized**: Semantic HTML structure and responsive layouts.
 
-## Project Structure
+## 🛠️ Tech Stack
 
-```
+*   **Frontend**: Vue 3 (Composition API), Vite, Vue Router
+*   **State Management**: Pinia
+*   **Styling**: Tailwind CSS (v3 with Custom Design Tokens)
+*   **Backend & Database**: Supabase (PostgreSQL)
+
+## 📦 Project Structure
+
+```bash
 src/
 ├── main.js              # App entry point
 ├── App.vue              # Root component
-├── style.css            # Tailwind CSS with design tokens
+├── style.css            # Tailwind CSS imports & Design Tokens
 ├── router/
-│   └── index.js         # Vue Router configuration
+│   └── index.js         # Client-side routing configuration
 ├── stores/
-│   └── blogStore.js     # Pinia store for blog data
+│   └── blogStore.js     # Pinia store for Supabase interactions
+├── lib/
+│   └── supabase/        # Supabase client configuration
 └── pages/
-    ├── HomePage.vue          # Homepage with featured articles
-    ├── BlogListPage.vue      # All articles grid view
-    ├── BlogViewPage.vue      # Individual article view
-    └── AdminEditorPage.vue   # Blog editor interface
+    ├── HomePage.vue          # Landing page with hero & featured articles
+    ├── BlogListPage.vue      # Full archive of published articles
+    ├── BlogViewPage.vue      # Single article reader
+    └── AdminEditorPage.vue   # CMS for writing & publishing
 ```
 
-## Setup Instructions
+## ⚡ Getting Started
 
 ### Prerequisites
 
-- Node.js 16+ (recommended: 18 or higher)
-- npm or yarn package manager
+*   Node.js 18+ installed
+*   A Supabase account (free tier works perfectly)
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd prepico-blogs
-```
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/Prisha4gupta/Prepico-Blogs.git
+    cd prepico-blogs
+    ```
 
-2. Install dependencies:
-```bash
-npm install
-```
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-3. Start the development server:
-```bash
-npm run dev
-```
+3.  **Environment Setup:**
+    Create a `.env` file in the root directory with your Supabase credentials:
+    ```env
+    VITE_SUPABASE_URL=your_supabase_project_url
+    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+    ```
 
-4. Open your browser and navigate to:
-```
-http://localhost:5173
-```
+4.  **Database Setup:**
+    Go to your Supabase SQL Editor and run the initialization script located at `scripts/02_create_public_schema.sql` to create the necessary tables and policies.
+    *   *Note: Ensure you also run `scripts/03_add_status_column.sql` if using a pre-existing table.*
 
-## Development
+5.  **Run Locally:**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-### Available Scripts
+## 📝 Usage
 
-- `npm run dev` - Start development server with hot reload
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
+### Admin Interface
+Navigate to `/admin` to access the editor.
+1.  Enter article details (Title, Slug, Author, etc.).
+2.  Use the "Add Block" button to structure your content.
+3.  Click "Publish Article" to push changes live to your Supabase database.
 
-### Project Dependencies
+### Reading Articles
+*   **Home**: Highlights featured articles.
+*   **Blog Feed**: Browse all published content at `/blogs`.
+*   **Article View**: Read full stories at `/blogs/:id`.
 
-```json
-{
-  "vue": "^3.4.0",
-  "vue-router": "^4.2.0",
-  "pinia": "^2.1.0",
-  "@vitejs/plugin-vue": "^5.0.0",
-  "tailwindcss": "^4.0.0"
-}
-```
+## 🎨 Customization
 
-## Blog Structure
+Design tokens are located in `src/style.css` using CSS variables mapped to Tailwind configuration:
+*   `--color-primary`: Main brand color (currently `#0066cc`)
+*   `--font-sans`: Primary typeface stack
 
-Each blog article contains:
+## 🤝 Contributing
 
-```javascript
-{
-  id: 1,
-  title: "Article Title",
-  slug: "article-slug",
-  excerpt: "Brief summary",
-  author: "Author Name",
-  date: "2025-01-15",
-  image: "https://...",
-  blocks: [
-    { type: "heading", content: "Section Title" },
-    { type: "paragraph", content: "Paragraph text" },
-    { type: "quote", content: "Quote content" },
-    { type: "list", items: ["Item 1", "Item 2"] }
-  ]
-}
-```
+1.  Fork the repository
+2.  Create your feature branch (`git checkout -b feature/amazing-feature`)
+3.  Commit your changes (`git commit -m 'Add some amazing feature'`)
+4.  Push to the branch (`git push origin feature/amazing-feature`)
+5.  Open a Pull Request
 
-## Creating a New Article
+## 📄 License
 
-1. Navigate to `/admin`
-2. Fill in article metadata:
-   - Title
-   - URL slug
-   - Excerpt
-   - Author name
-   - Publication date
-   - Featured image URL
-3. Add content blocks:
-   - Headings, paragraphs, quotes, and lists
-   - Reorder or remove blocks as needed
-4. Click "Publish Article" to save
-
-## Styling
-
-The project uses **Tailwind CSS v4** with custom design tokens:
-
-- **Primary Color**: `#0066cc` (Professional blue)
-- **Background**: `#ffffff`
-- **Text**: `#1a1a1a`
-- **Secondary**: `#6b7280` (Gray)
-- **Border**: `#e5e7eb` (Light gray)
-
-Design tokens are defined in `src/style.css` and can be customized to match your brand.
-
-## Database Integration
-
-The project includes a SQL schema (`scripts/01_create_schema.sql`) for production deployment:
-
-- `blogs` table - Article metadata and block content
-- `blog_blocks` table - Normalized content structure
-- `authors` table - Author information
-- `admin_users` table - Authentication
-
-To use with a database:
-1. Run the SQL schema in your database
-2. Update the Pinia store to fetch from your API
-3. Create API endpoints for CRUD operations
-
-## Deployment
-
-### Vercel (Recommended)
-
-```bash
-npm i -g vercel
-vercel
-```
-
-### GitHub Pages
-
-Build the project and push the `dist` folder.
-
-## Color System
-
-- **Primary**: Navy Blue (#0066cc) - Main brand color
-- **Light Primary**: #e6f0ff - Subtle backgrounds
-- **Secondary**: Gray (#6b7280) - Text and accents
-- **Light Secondary**: #f3f4f6 - Subtle backgrounds
-- **Border**: #e5e7eb - Dividers and borders
-
-## Typography
-
-- **Headings**: System font stack (Segoe UI, Roboto, etc.)
-- **Body**: System font stack
-- **Line Height**: 1.6 (optimized for readability)
-
-## License
-
-MIT
-
-## Support
-
-For issues, questions, or feature requests, please open an issue on GitHub.
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-Built with by the Prepico team.
+> Built with ❤️ by the Prepico Team.
